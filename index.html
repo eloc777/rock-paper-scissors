@@ -15,14 +15,39 @@
         function getComputerChoice() {
             let compChoice = getRandomInt(1, 4)
             if (compChoice == 1) {
-                return 'Rock';
+                return 'rock';
             } else if (compChoice == 2) {
-                return 'Paper';
+                return 'paper';
             } else {
-                return 'Scissors';
+                return 'scissors';
             }
         }
-        console.log(getComputerChoice())
+        function getPlayerChoice() {
+            let playerChoice = prompt('enter your choice').toLowerCase()
+            return playerChoice
+            }
+        const compSelection = getComputerChoice()
+        const playerSelection = getPlayerChoice()
+
+        function playRound(playerSelection, compSelection) {
+
+            if (playerSelection == compSelection) {
+                return 'tie!';
+            }  else if (playerSelection == 'rock' && compSelection == 'scissors') {
+                return 'you win! rock beats scissors';
+            }   else if (playerSelection == 'rock' && compSelection == 'paper') {
+                return 'you lose! paper beats rock';
+            }   else if (playerSelection == 'paper' && compSelection == 'scissors') {
+                return 'you lose! scissors beats paper';
+            }   else if (playerSelection == 'paper' && compSelection == 'rock') {
+                return 'you win! paper beats rock';
+            }   else if (playerSelection == 'scissors' && compSelection == 'paper') {
+                return 'you win! scissors beats paper';
+            }   else if (playerSelection == 'scissors' && compSelection == 'rock') {
+                return 'you lose! rock beats scissors';
+            }
+        }
+        console.log(playRound(playerSelection, compSelection));
     </script>
 
 </body>
