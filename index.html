@@ -26,8 +26,8 @@
             let playerChoice = prompt('enter your choice').toLowerCase()
             return playerChoice
             }
-        const compSelection = 'rock'
-        const playerSelection = 'paper'
+        const compSelection = getComputerChoice()
+        const playerSelection = getPlayerChoice()
 
         function playRound(playerSelection, compSelection) {
 
@@ -67,14 +67,24 @@
 
         
 
-        function playGame() {
+        function playRoundAndCheck() {
             console.log(playRound(playerSelection, compSelection))
             checkOutcome(outcome)
             let score = 'wins' + wins + 'ties' + ties + 'loses' + losses
             console.log(score)
-            
+
         }
+
+        function playGame() {
+            playRoundAndCheck()
+            playRoundAndCheck()
+            playRoundAndCheck()
+            playRoundAndCheck()
+            playRoundAndCheck()
+        }
+
         console.log(playGame());
+
     </script>
 
 </body>
