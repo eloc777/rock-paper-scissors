@@ -26,28 +26,53 @@
             let playerChoice = prompt('enter your choice').toLowerCase()
             return playerChoice
             }
-        const compSelection = getComputerChoice()
-        const playerSelection = getPlayerChoice()
+        const compSelection = 'rock'
+        const playerSelection = 'paper'
 
         function playRound(playerSelection, compSelection) {
 
             if (playerSelection == compSelection) {
                 return 'tie!';
             }  else if (playerSelection == 'rock' && compSelection == 'scissors') {
-                return 'you win! rock beats scissors';
+                return 'you win!' + ' rock beats scissors';
             }   else if (playerSelection == 'rock' && compSelection == 'paper') {
-                return 'you lose! paper beats rock';
+                return 'you lose!' + ' paper beats rock';
             }   else if (playerSelection == 'paper' && compSelection == 'scissors') {
-                return 'you lose! scissors beats paper';
+                return 'you lose!' + ' scissors beats paper';
             }   else if (playerSelection == 'paper' && compSelection == 'rock') {
-                return 'you win! paper beats rock';
+                return 'you win!' + ' paper beats rock';
             }   else if (playerSelection == 'scissors' && compSelection == 'paper') {
-                return 'you win! scissors beats paper';
+                return 'you win!' + ' scissors beats paper';
             }   else if (playerSelection == 'scissors' && compSelection == 'rock') {
-                return 'you lose! rock beats scissors';
+                return 'you lose!' + ' rock beats scissors';
             }
         }
-        console.log(playRound(playerSelection, compSelection));
+        let wins = 0
+        let ties = 0;
+        let losses = 0
+        
+        let outcome = playRound(playerSelection, compSelection)
+
+        function checkOutcome(outcome) {
+            if (outcome = 'you win!') {
+                wins = wins + 1
+            } else if (outcome = 'you lose!') {
+                losses = losses + 1
+            } else if (outcome = 'tie!') {
+                ties = ties + 1
+            }
+        
+        }
+
+
+        let score = 'wins' + wins + 'ties' + ties + 'loses' + losses
+
+        function playGame() {
+            console.log(playRound(playerSelection, compSelection))
+            console.log(checkOutcome(outcome))
+            console.log(score)
+        }
+        console.log(playGame());
     </script>
 
 </body>
