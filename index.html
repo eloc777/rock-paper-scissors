@@ -26,8 +26,7 @@
             let playerChoice = prompt('enter your choice').toLowerCase()
             return playerChoice
             }
-        const compSelection = getComputerChoice()
-        const playerSelection = getPlayerChoice()
+
 
         function playRound(playerSelection, compSelection) {
 
@@ -46,12 +45,16 @@
             }   else if (playerSelection == 'scissors' && compSelection == 'rock') {
                 return 'you lose!' + ' rock beats scissors';
             }
+
         }
         let wins = 0
         let ties = 0;
         let losses = 0
+
+       /* let playerSelection = getPlayerChoice()
+        let compSelection = getComputerChoice() */
         
-        let outcome = playRound(playerSelection, compSelection)
+        /* let outcome = playRound(getPlayerChoice(), getComputerChoice()) */
 
         function checkOutcome(outcome) {
             if (outcome.includes('you win!')) {
@@ -68,20 +71,30 @@
         
 
         function playRoundAndCheck() {
-            console.log(playRound(playerSelection, compSelection))
+            let outcome = playRound(getPlayerChoice(), getComputerChoice())
+            console.log(outcome)
             checkOutcome(outcome)
             let score = 'wins' + wins + 'ties' + ties + 'loses' + losses
             console.log(score)
+        }
 
+        function checkScore() {
+            if (wins > losses) {
+                console.log('congratualtions, you win!')
+            } else if (losses > wins) {
+                console.log('sorry, you lost...')
+            } else {
+                console.log('it is a tie!')
+            }
         }
 
         function playGame() {
             playRoundAndCheck()
-            console.log(outcome)
             playRoundAndCheck()
             playRoundAndCheck()
             playRoundAndCheck()
             playRoundAndCheck()
+            checkScore()
         }
 
         console.log(playGame());
