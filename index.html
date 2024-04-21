@@ -65,12 +65,14 @@
         }
 
 
-        let score = 'wins' + wins + 'ties' + ties + 'loses' + losses
+        
 
         function playGame() {
             console.log(playRound(playerSelection, compSelection))
-            console.log(checkOutcome(outcome))
+            checkOutcome(outcome)
+            let score = 'wins' + wins + 'ties' + ties + 'loses' + losses
             console.log(score)
+            
         }
         console.log(playGame());
     </script>
