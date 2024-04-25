@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <button id="scissorsBtn">'Scissors'</button>
+    <button id="rockBtn">'Rock'</button>
+    <button id="paperBtn">'Paper'</button>
     <script>
         function getRandomInt(min, max) {
             const minCeiled = Math.ceil(min);
@@ -88,17 +91,21 @@
             }
         }
 
-        function playGame() {
-            playRoundAndCheck()
-            playRoundAndCheck()
-            playRoundAndCheck()
-            playRoundAndCheck()
-            playRoundAndCheck()
-            checkScore()
-        }
+        const scissorsBtn = document.querySelector('#scissorsBtn')
+        const rockBtn = document.querySelector('#rockBtn')
+        const paperBtn = document.querySelector('#paperBtn')
 
-        console.log(playGame());
+        rockBtn.addEventListener('click', function () {
+            console.log(playRound('rock', getComputerChoice()));
+        });
+        paperBtn.addEventListener('click', function () {
+            console.log(playRound('paper', getComputerChoice()));
+        });
+        scissorsBtn.addEventListener('click', function () {
+            console.log(playRound('scissors', getComputerChoice()));
+        });
 
+        
     </script>
 
 </body>
