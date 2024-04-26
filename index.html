@@ -90,6 +90,28 @@
             checkTotal()
         }
 
+        function playRoundAndCheckPaper() {
+            let outcome = playRound('paper', getComputerChoice())
+            outcomeDiv.textContent = outcome
+            results.appendChild(outcomeDiv)
+            checkOutcome(outcome)
+            let score = 'wins' + wins + 'ties' + ties + 'loses' + losses
+            scoreDiv.textContent = score 
+            results.appendChild(scoreDiv)
+            checkTotal()
+        }
+
+        function playRoundAndCheckScissors() {
+            let outcome = playRound('scissors', getComputerChoice())
+            outcomeDiv.textContent = outcome
+            results.appendChild(outcomeDiv)
+            checkOutcome(outcome)
+            let score = 'wins' + wins + 'ties' + ties + 'loses' + losses
+            scoreDiv.textContent = score 
+            results.appendChild(scoreDiv)
+            checkTotal()
+        }
+
         function checkScore() {
             if (wins > losses) {
                 winDiv.textContent = 'congratualtions, you win!'
@@ -101,7 +123,7 @@
         }
 
         function checkTotal() {
-            if (wins == 5 || loses == 5)
+            if (wins == 5 || losses == 5)
             checkScore()
         }
 
@@ -109,18 +131,16 @@
         const rockBtn = document.querySelector('#rockBtn')
         const paperBtn = document.querySelector('#paperBtn')
 
-        // rockBtn.addEventListener('click', function () {
-         //   console.log(playRound('rock', getComputerChoice()));
-        //}); 
+
         paperBtn.addEventListener('click', function () {
-            console.log(playRound('paper', getComputerChoice()));
+            playRoundAndCheckPaper();
         });
         scissorsBtn.addEventListener('click', function () {
-            console.log(playRound('scissors', getComputerChoice()));
+            playRoundAndCheckScissors();
         });
 
         rockBtn.addEventListener('click', function () {
-           console.log(playRoundAndCheckRock());
+           playRoundAndCheckRock();
         }); 
 
         
