@@ -9,6 +9,9 @@
     <button id="scissorsBtn">'Scissors'</button>
     <button id="rockBtn">'Rock'</button>
     <button id="paperBtn">'Paper'</button>
+    <div id="results">
+
+    </div>
     <script>
         function getRandomInt(min, max) {
             const minCeiled = Math.ceil(min);
@@ -70,40 +73,55 @@
         
         }
 
+        const outcomeDiv = document.createElement('div')
+        const results = document.querySelector('#results')
+        const scoreDiv = document.createElement('div')
+        const winDiv = document.createElement('div')
+        const loseDiv = document.createElement('div')
 
-        
-
-        function playRoundAndCheck() {
-            let outcome = playRound(getPlayerChoice(), getComputerChoice())
-            console.log(outcome)
+        function playRoundAndCheckRock() {
+            let outcome = playRound('rock', getComputerChoice())
+            outcomeDiv.textContent = outcome
+            results.appendChild(outcomeDiv)
             checkOutcome(outcome)
             let score = 'wins' + wins + 'ties' + ties + 'loses' + losses
-            console.log(score)
+            scoreDiv.textContent = score 
+            results.appendChild(scoreDiv)
+            checkTotal()
         }
 
         function checkScore() {
             if (wins > losses) {
-                console.log('congratualtions, you win!')
+                winDiv.textContent = 'congratualtions, you win!'
+                results.appendChild(winDiv)
             } else if (losses > wins) {
-                console.log('sorry, you lost...')
-            } else {
-                console.log('it is a tie!')
-            }
+                loseDiv.textContent = 'sorry, you lost...'
+                results.appendChild(loseDiv)
+            } 
+        }
+
+        function checkTotal() {
+            if (wins == 5 || loses == 5)
+            checkScore()
         }
 
         const scissorsBtn = document.querySelector('#scissorsBtn')
         const rockBtn = document.querySelector('#rockBtn')
         const paperBtn = document.querySelector('#paperBtn')
 
-        rockBtn.addEventListener('click', function () {
-            console.log(playRound('rock', getComputerChoice()));
-        });
+        // rockBtn.addEventListener('click', function () {
+         //   console.log(playRound('rock', getComputerChoice()));
+        //}); 
         paperBtn.addEventListener('click', function () {
             console.log(playRound('paper', getComputerChoice()));
         });
         scissorsBtn.addEventListener('click', function () {
             console.log(playRound('scissors', getComputerChoice()));
         });
+
+        rockBtn.addEventListener('click', function () {
+           console.log(playRoundAndCheckRock());
+        }); 
 
         
     </script>
